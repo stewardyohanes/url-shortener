@@ -9,7 +9,7 @@ import (
 func SetupRoutes() *gin.Engine {
 	r := gin.Default()
 
-	r.POST("/shorten", middleware.RateLimitMiddleware(), handlers.Shorten)
+	r.POST("/shorten", middleware.RedisRateLimit(), handlers.Shorten)
 	r.GET("/:short_code", handlers.Redirect)
 
 	return r

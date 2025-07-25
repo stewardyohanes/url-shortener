@@ -7,6 +7,7 @@ import (
 
 func main() {
 	config.InitDB()
+	config.InitRedis()
 	router := routes.SetupRoutes()
 
 	router.Run(":8080")
